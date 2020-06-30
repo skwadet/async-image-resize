@@ -2,8 +2,8 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '&gao_@5p*44d*(7$l77ew87)+nj(mskx!p0rb8b*3gtz9!x4o6'
-DEBUG = True
-ALLOWED_HOSTS = []
+DEBUG = False
+ALLOWED_HOSTS = ['0.0.0.0']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -77,6 +77,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/images/'
 
 CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379'

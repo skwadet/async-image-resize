@@ -10,5 +10,3 @@ from . import tasks
 def resize_signal(sender, instance, **kwargs):
     if instance.status == 'NOT DONE':
         transaction.on_commit(lambda: tasks.add_resize_task.delay(image_uuid=instance.uuid))
-
-

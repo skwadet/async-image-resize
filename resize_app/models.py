@@ -1,6 +1,6 @@
 import uuid
 
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 
@@ -11,9 +11,9 @@ class ImageToResize(models.Model):
     ]
 
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    image = models.ImageField(upload_to='images')
-    width = models.PositiveSmallIntegerField(validators=[MaxValueValidator(9999)])
-    height = models.PositiveSmallIntegerField(validators=[MaxValueValidator(9999)])
+    image = models.ImageField()
+    width = models.PositiveSmallIntegerField(validators=[MaxValueValidator(9999), MinValueValidator(1)])
+    height = models.PositiveSmallIntegerField(validators=[MaxValueValidator(9999), MinValueValidator(1)])
     date = models.DateTimeField(auto_now=True)
     status = models.CharField(choices=STATUS_CHOICE, max_length=25, default='NOT DONE', blank=True)
 

@@ -13,7 +13,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'resize_app.apps.ResizeAppConfig',
-    'imagekit',
     'rest_framework',
     'psycopg2',
 ]

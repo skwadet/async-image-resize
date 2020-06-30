@@ -6,7 +6,7 @@ from . import models
 class CreateTaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.ImageToResize
-        fields = ['uuid', 'image', 'width', 'height']
+        fields = ['image', 'height', 'width']
 
 
 class GetStatusSerializer(serializers.ModelSerializer):

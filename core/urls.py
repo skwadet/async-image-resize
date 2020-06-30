@@ -11,8 +11,6 @@ from resize_app import views
 router = routers.DefaultRouter()
 router.register(r'create/task', views.CreateTaskAPI, basename='create')
 
-handler500 = 'rest_framework.exceptions.server_error'
-handler400 = 'rest_framework.exceptions.bad_request'
 
 urlpatterns = [
     path('api/', include(router.urls)),

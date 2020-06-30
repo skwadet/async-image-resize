@@ -13,6 +13,6 @@ def add_resize_task(image_uuid):
 
 
 def resize(image):
-    image_to_resize = Image.open(str(image.image))
+    image_to_resize = Image.open('media/' + str(image.image))
     resized_image = image_to_resize.resize((image.width, image.height))
-    resized_image.save(str(image.image))
+    resized_image.save('media/' + str(image.image))

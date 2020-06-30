@@ -11,7 +11,7 @@ class ImageToResize(models.Model):
     ]
 
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='images/')
     width = models.PositiveSmallIntegerField(validators=[MaxValueValidator(9999), MinValueValidator(1)])
     height = models.PositiveSmallIntegerField(validators=[MaxValueValidator(9999), MinValueValidator(1)])
     date = models.DateTimeField(auto_now=True)

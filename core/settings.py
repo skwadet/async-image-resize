@@ -2,7 +2,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '&gao_@5p*44d*(7$l77ew87)+nj(mskx!p0rb8b*3gtz9!x4o6'
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
@@ -77,6 +77,9 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+REST_FRAMEWORK = {
+    'EXCEPTION_HANDLER': 'drf_pretty_exception_handler.exception_handler',
+}
 FILE_UPLOAD_HANDLERS = [
     'django.core.files.uploadhandler.TemporaryFileUploadHandler',
 ]
@@ -84,8 +87,8 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-CELERY_BROKER_URL = 'redis://0.0.0.0:6379'
-CELERY_RESULT_BACKEND = 'redis://0.0.0.0:6379'
+CELERY_BROKER_URL = 'redis://0.0.0.0:6379/0'
+CELERY_RESULT_BACKEND = 'redis://0.0.0.0:6379/0'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
